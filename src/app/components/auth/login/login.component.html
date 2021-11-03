@@ -1,0 +1,42 @@
+<div class="login">
+  <h1>Zawadi Platform</h1>
+  <div class=" w3l-login-form">
+    <h2>Login Here</h2>
+    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+      <div class="form-group">
+        <label>Username:</label>
+        <div class="group">
+          <i class="fas fa-user"></i>
+          <input type="text" class="form-control" name="login" [(ngModel)]="form.login" required minlength="3"
+            maxlength="20" #username="ngModel" placeholder="Username" />
+          <div class="alert-danger" *ngIf="username.errors && f.submitted">
+            <div *ngIf="username.errors.required">Username is required</div>
+            <div *ngIf="username.errors.minlength">
+              Username must be at least 3 characters
+            </div>
+            <div *ngIf="username.errors.maxlength">
+              Username must be at most 20 characters
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <div class="group">
+          <i class="fas fa-unlock"></i>
+          <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+            #password="ngModel" placeholder='Password' />
+        </div>
+      </div>
+      <button type="submit">Login</button>
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Successfully signed in.
+    </div>
+    <p class=" w3l-register-p">Don't have an account?<a routerLink="/register" class="register"> Register</a></p>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+*{
+    font-family: 'Raleway', sans-serif;
+}
+
+.background {
+    margin: 0;
+    padding: 0;
+    background: url(../../../assets/images/cover4.jpg) no-repeat 0px 0px;
+    min-height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+button {
+    background: #fc3955;
+    color: #ffffff;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    padding: 12px 60px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 6px;
+}
+
+button:hover {
+    background-color: #00BCD4;
+    transition-duration: 5s;
+}
