@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  BASE_URL: 'http://127.0.0.1:8000/api/v1/',
-  AUTH_URL: 'http://127.0.0.1:8000/api/v1/accounts/'
+  BASE_URL: 'https://awwrates77.herokuapp.com/api/v1/',
+  AUTH_URL: 'https://awwrates77.herokuapp.com/api/v1/accounts/'
 };
 
 /*
