@@ -1,5 +1,5 @@
 <div class="login">
-  <h1>Zawadi Platform</h1>
+  <h1>AwwRate Platform</h1>
   <div class="w3l-login-form">
     <h2>Register Here</h2>
     <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
@@ -61,7 +61,7 @@
           <div class="alert-danger" *ngIf="password.errors && f.submitted">
             <div *ngIf="password.errors.required">Password is required</div>
             <div *ngIf="password.errors.minlength">
-              Password must be at least 6 characters
+              Password must be at least 8 characters, not numeric only and not similar to username
             </div>
           </div>
         </div>
@@ -71,7 +71,10 @@
       </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Signup failed!<br />{{ errorMessage }}
+        Signup failed!<br/>
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-warning">
+        <strong>Warning!</strong> {{errorMessage | json}}
       </div>
     </form>
 

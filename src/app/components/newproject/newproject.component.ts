@@ -9,43 +9,46 @@ import { ProjectsService } from 'src/app/shared/services/projects.service';
 })
 export class NewprojectComponent implements OnInit {
 
-  form:any;
-  message:any
+  form: any;
+  message: any
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private projectsService: ProjectsService) { 
+  title: string = ''
+  description: string = ''
+  image: any = ''
+  link: any = ''
+
+  constructor(private projectsService: ProjectsService) {
 
   }
 
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      'title':new FormControl('', [Validators.required]),
-      // 'image': new FormControl('', [Validators.required]),
-      'description':new FormControl('', [Validators.required]),
-      'link': new FormControl('', [Validators.required]),
-    });
+    // this.form = new FormGroup({
+    //   'title': new FormControl('', [Validators.required]),
+    //   // 'image': new FormControl('', [Validators.required]),
+    //   'description': new FormControl('', [Validators.required]),
+    //   'link': new FormControl('', [Validators.required]),
+    // });
   }
 
-  get f(){
+  get f() {
     return this.form.controls;
   }
 
-  onSelectedFile(event:any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.form.get('image').setValue(file);
-      console.log(this.form.get('image').value);
-    }
+  onImageChange(event: any) {
+    this.image = event.target.files[0]
   }
 
   onSubmit() {
-    console.log(this.form.value)
-    this.projectsService.postProject(this.form.value).subscribe(response => {
-      this.message=response
-      console.log(this.message)
-   })
+    let projectForm= new FormData();
+    projectForm.append('title', this.title)
+    projectForm.append('description', this.description)
+    projectForm.append('link', this.link)
+    projectForm.append('image', this.image)
+    console.log(projectForm)
+    this.projectsService.postProject(projectForm)
   }
 }

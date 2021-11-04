@@ -43,6 +43,7 @@ export class AuthenticationService {
 
   logoutUser() {
     sessionStorage.removeItem('currentUser');
+    this.route.navigate(['/'])
   }
 }
 

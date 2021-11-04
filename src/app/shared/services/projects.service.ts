@@ -27,7 +27,11 @@ export class ProjectsService {
   }
 
   postProject(uploadData:any) {
-    return this._http.post(`${environment.BASE_URL}projects/`, { uploadData }, httpOptions)
+    
+    this._http.post(`${environment.BASE_URL}projects/`, uploadData).subscribe(response => {
+      console.log(response)
+      return response
+    })
   }
 
   getSingleProject(projectId: number) {

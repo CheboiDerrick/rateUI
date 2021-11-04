@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'; 
 import { AuthenticationService } from '../services/auth.service';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +11,7 @@ import { AuthenticationService } from '../services/auth.service';
 export class RegisterComponent implements OnInit {
 
   data:any
+  dataError:any
   form: any = {
     username: null,
     email: null,
@@ -31,10 +34,14 @@ export class RegisterComponent implements OnInit {
       this.isSignUpFailed = false;
     }, err => {
       this.errorMessage = err.error.message;
+      console.log(err);
+      console.log(this.errorMessage)
+      this.dataError=this.data
+      console.log(this.dataError)
       this.isSignUpFailed = true;
+      throw err;
     })
   }
-
   ngOnInit(): void {
   }
 
