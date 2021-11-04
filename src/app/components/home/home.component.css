@@ -28,3 +28,61 @@ button:hover {
     background-color: #00BCD4;
     transition-duration: 5s;
 }
+
+/*-- /responsive design --*/
+
+@media (max-width: 768px) {
+    .row {
+      width: 80%;
+      margin: auto auto;
+    }
+  }
+  
+  @media (max-width: 667px) {
+    .row {
+        width: 80%;
+        margin: auto auto;
+      }
+  }
+  
+  @media (max-width: 640px) {
+    .row {
+        width: 80%;
+        margin: auto auto;
+      }
+  }
+  
+  @media (max-width: 568px) {
+    .row {
+        width: 80%;
+        margin: auto auto;
+      }
+  }
+  
+  @media (max-width: 480px) {
+    .row {
+        width: 90%;
+        margin: auto auto;
+      }
+  }
+  
+  @media (max-width: 414px) {
+    .row {
+        width: 100%;
+        margin: auto auto;
+      }
+  }
+  
+  @media (max-width: 384px) {
+    .row {
+        width: 100%;
+        margin: auto auto;
+      }
+  }
+  
+  @media (max-width: 320px) {
+    .row {
+        width: 100%;
+        margin: auto auto;
+      }
+  }
