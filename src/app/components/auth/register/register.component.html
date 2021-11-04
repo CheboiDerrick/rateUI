@@ -42,12 +42,12 @@
         <label>Password</label>
         <div class="group">
           <i class="fas fa-lock"></i>
-          <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+          <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="8"
             #password="ngModel" />
           <div class="alert-danger" *ngIf="password.errors && f.submitted">
             <div *ngIf="password.errors.required">Password is required</div>
             <div *ngIf="password.errors.minlength">
-              Password must be at least 6 characters
+              Password must be at least 8 characters, not numeric only and not similar to username
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
         <div class="group">
           <i class="fas fa-lock"></i>
           <input type="password" class="form-control" name="password_confirm" [(ngModel)]="form.password_confirm"
-            required minlength="6" #password="ngModel" />
+            required minlength="8" #password="ngModel" />
           <div class="alert-danger" *ngIf="password.errors && f.submitted">
             <div *ngIf="password.errors.required">Password is required</div>
             <div *ngIf="password.errors.minlength">
